@@ -37,7 +37,6 @@ export default class ExperienceDisplay extends Component {
                     .then(value =>
                         this.setState({ fetched: value, fetching: false })
                     )
-
             })
             .catch(r => console.error(`FAILED with reason: ${r}`))
     }
