@@ -14,17 +14,20 @@ export default class ExperienceInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dirty: false,
+            skillDirty: false,
+            experienceDirty: false,
             posted: false,
             saving: false,
             endpoint: 'http://localhost:54320/skills/',
-            skill: null,
-            experience: null
+            skill: '',
+            experience: 'Experience',
+            onSave: props.onSave
 
         }
         this.handleSave = this.handleSave.bind(this)
         this.handleExperienceChange = this.handleExperienceChange.bind(this)
         this.handleSkillChange = this.handleSkillChange.bind(this)
+        this.shouldSave = this.shouldSave.bind(this)
     }
     handleSave() {
         this.setState({ saving: true })
@@ -32,7 +35,8 @@ export default class ExperienceInput extends Component {
             name: this.state.skill,
             experience: this.state.experience
         }
-        fetch(this.state.endpoint, {
+
+        this.shouldSave() && fetch(this.state.endpoint, {
             method: "POST",
             mode: "cors",
             cache: "no-cache",
@@ -45,8 +49,9 @@ export default class ExperienceInput extends Component {
             body: JSON.stringify(data)
         })
             .then(response => {
-                console.log(response)
-                this.setState({ dirty: false, posted: true, saving: false })
+                this.setState({ skillDirty: false, posted: true, saving: false })
+                this.setState({skill: ''})
+                this.state.onSave();
             })
             .catch(e => {
                 console.error(`FAILED with reason: ${e}`)
@@ -54,30 +59,33 @@ export default class ExperienceInput extends Component {
     }
     handleExperienceChange(e) {
         this.setState({
-            dirty: true,
+            experienceDirty: true,
             experience: e.target.value
         })
     }
     handleSkillChange(e) {
         this.setState({
-            dirty: true,
+            skillDirty: true,
             skill: e.target.value
         })
+    }
+    shouldSave() {
+        return this.state.skillDirty && this.state.experienceDirty
     }
     render() {
         return (
             <section className="input grid">
                 <div className="type grid-item">
-                    <input class="input" id="skill-input" type="text" placeholder="React, Node, JavaScript, TypeScript ..." onChange={this.handleSkillChange} />
+                    <input className="input" id="skill-input" type="text" placeholder="React, Node, JavaScript, TypeScript ..." onChange={this.handleSkillChange} value={this.state.skill} />
                 </div>
                 <div className="experience grid-item">
-                    <select class="input" id="experience-input" defaultValue="Experience" onChange={this.handleExperienceChange}>
-                        <option disabled value="Experience">Exerience</option>
+                    <select className="input" id="experience-input" defaultValue="Experience" onChange={this.handleExperienceChange}>
+                        <option disabled value="Experience">Experience</option>
                         {options.map(option => <option key={option} value={option}>{option}</option>)}
                     </select>
                 </div>
                 <div className="save grid-item">
-                    <button class="input" id="save-input" onClick={this.handleSave} disabled={!this.state.dirty}>Add Skills</button>
+                    <button className="input" id="save-input" onClick={this.handleSave} disabled={!this.shouldSave()}>Add Skills</button>
                 </div>
             </section>
         )
