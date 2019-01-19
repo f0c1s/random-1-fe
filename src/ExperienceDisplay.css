@@ -1,0 +1,44 @@
+section.display {
+    background-color: #eeeeee;
+}
+
+ol {
+    padding: 0;
+}
+
+ol li {
+    background-color: white;
+    list-style: decimal inside;
+    width: 200px;
+    height: 80px;
+    margin: 1em;
+    padding: .1em;
+}
+
+ol li .position {
+    background-color: black;
+    color: white;
+    padding: 0 .4em;
+    margin: 0 .1em;
+    grid-area: sidebar;
+    width: 10px;
+}
+
+ol li .name {
+    grid-area: skill;
+}
+
+ol li .experience {
+    grid-area: experience;
+    padding: 0 .4em;
+    color: grey;
+}
+
+.display .grid {
+    display: inline-grid;
+    justify-content: stretch;
+    grid-template-columns: 30px auto;
+    grid-template-areas: 
+    "sidebar skill"
+    "sidebar experience"
+}

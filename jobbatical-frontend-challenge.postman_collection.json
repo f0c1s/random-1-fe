@@ -45,7 +45,8 @@
 						{
 							"key": "id",
 							"value": "126",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "name",

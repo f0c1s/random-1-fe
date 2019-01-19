@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
+import './ExperienceDisplay.css'
 
 class Experience extends Component {
     render() {
         return (
             <ol>
                 {
-                    this.props.skills.map(skill =>
-                        <li id={skill.id} key={JSON.stringify(skill)} className="experience-tile">
-                            <span className="name">{skill.name}</span>
-                            <span className="experience">{skill.experience}</span>
+                    this.props.skills.map((skill, pos) =>
+                        <li key={skill.id} className="experience-tile grid">
+                            <div className="position">{pos + 1}</div>
+                            <div className="name">{skill.name}</div>
+                            <div className="experience">{skill.experience}</div>
                         </li>
                     )
                 }
@@ -46,9 +48,9 @@ export default class ExperienceDisplay extends Component {
 
     render() {
         return (
-            <div>
+            <section className="display">
                 {this.state.fetched.length > 0 ? <Experience skills={this.state.fetched} /> : ''}
-            </div>
+            </section>
         )
     }
 }
