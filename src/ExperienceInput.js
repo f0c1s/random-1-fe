@@ -70,7 +70,7 @@ export default class ExperienceInput extends Component {
         })
     }
     shouldSave() {
-        return this.state.skillDirty && this.state.experienceDirty
+        return this.state.skillDirty && this.state.experienceDirty && this.state.skill.length <= 255 && this.state.skill.length >= 4
     }
     render() {
         return (
