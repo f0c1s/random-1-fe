@@ -7,7 +7,7 @@ class Experience extends Component {
             <ol>
                 {
                     this.props.skills.map((skill, pos) =>
-                        <li key={skill.id} className="experience-tile grid">
+                        <li key={skill.id} className={"experience-tile grid" + (pos < 5 ? " first-five" : '')}>
                             <div className="position">{pos + 1}</div>
                             <div className="name">{skill.name}</div>
                             <div className="experience">{skill.experience}</div>

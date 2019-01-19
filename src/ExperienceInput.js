@@ -44,13 +44,13 @@ export default class ExperienceInput extends Component {
             referrer: "no-referrer",
             body: JSON.stringify(data)
         })
-        .then(response=> {
-            console.log(response)
-            this.setState({ dirty: false, posted: true, saving: false })
-        })
-        .catch(e => {
-            console.error(`FAILED with reason: ${e}`)
-        })
+            .then(response => {
+                console.log(response)
+                this.setState({ dirty: false, posted: true, saving: false })
+            })
+            .catch(e => {
+                console.error(`FAILED with reason: ${e}`)
+            })
     }
     handleExperienceChange(e) {
         this.setState({
@@ -66,18 +66,18 @@ export default class ExperienceInput extends Component {
     }
     render() {
         return (
-            <section className="input grid" >
+            <section className="input grid">
                 <div className="type grid-item">
-                    <input type="text" placeholder="React, Node, JavaScript, TypeScript ..." onChange={this.handleSkillChange}/>
+                    <input class="input" id="skill-input" type="text" placeholder="React, Node, JavaScript, TypeScript ..." onChange={this.handleSkillChange} />
                 </div>
                 <div className="experience grid-item">
-                    <select defaultValue="Experience" onChange={this.handleExperienceChange}>
+                    <select class="input" id="experience-input" defaultValue="Experience" onChange={this.handleExperienceChange}>
                         <option disabled value="Experience">Exerience</option>
                         {options.map(option => <option key={option} value={option}>{option}</option>)}
                     </select>
                 </div>
-                <div className="save">
-                    <button onClick={this.handleSave}>Add Skills</button>
+                <div className="save grid-item">
+                    <button class="input" id="save-input" onClick={this.handleSave} disabled={!this.state.dirty}>Add Skills</button>
                 </div>
             </section>
         )
