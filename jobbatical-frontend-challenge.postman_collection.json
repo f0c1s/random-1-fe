@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "2b375914-2875-449b-9d2f-a6a69661c397",
+		"name": "jobbatical-frontend-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all skills",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:54320/skills",
+					"host": [
+						"localhost"
+					],
+					"port": "54320",
+					"path": [
+						"skills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:54320/skills",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "126",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "woohoo",
+							"type": "text"
+						},
+						{
+							"key": "experience",
+							"value": "123 months",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:54320/skills",
+					"host": [
+						"localhost"
+					],
+					"port": "54320",
+					"path": [
+						"skills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:54320/skills/126",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:54320/skills/126",
+					"host": [
+						"localhost"
+					],
+					"port": "54320",
+					"path": [
+						"skills",
+						"126"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
