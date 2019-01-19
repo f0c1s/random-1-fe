@@ -16,59 +16,9 @@
       "experience": "< 1 Year"
     },
     {
-      "id": "126",
-      "name": "woohoo",
-      "experience": "123 months"
-    },
-    {
-      "name": "woohoo",
-      "experience": "123 months",
-      "id": "EFHuDn1"
-    },
-    {
-      "name": "yoyo",
+      "name": "JavaScript",
       "experience": "< 1 year",
-      "id": "n7AEWBQ"
-    },
-    {
-      "name": "reac",
-      "experience": "< 1 year",
-      "id": "v5eWZyM"
-    },
-    {
-      "name": null,
-      "experience": null,
-      "id": "JEKSO2X"
-    },
-    {
-      "name": "",
-      "experience": null,
-      "id": "8_jY0-g"
-    },
-    {
-      "name": "dfgh",
-      "experience": "1 - 3 years",
-      "id": "9XhQnzq"
-    },
-    {
-      "name": "gfj",
-      "experience": "1 - 3 years",
-      "id": "K2OWPNM"
-    },
-    {
-      "name": "sdf32",
-      "experience": "< 1 year",
-      "id": "rka3cSq"
-    },
-    {
-      "name": "cz",
-      "experience": "< 1 year",
-      "id": "FSy_N6r"
-    },
-    {
-      "name": "xc",
-      "experience": "< 1 year",
-      "id": "KCccXXa"
+      "id": 126
     }
   ]
 }

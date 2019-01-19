@@ -21,7 +21,7 @@ export default class ExperienceInput extends Component {
             endpoint: 'http://localhost:54320/skills/',
             skill: '',
             experience: 'Experience',
-            onSave: props.onSave
+            onUpdate: props.onUpdate
 
         }
         this.handleSave = this.handleSave.bind(this)
@@ -51,10 +51,10 @@ export default class ExperienceInput extends Component {
             .then(response => {
                 this.setState({ skillDirty: false, posted: true, saving: false })
                 this.setState({skill: ''})
-                this.state.onSave();
+                this.state.onUpdate();
             })
             .catch(e => {
-                console.error(`FAILED with reason: ${e}`)
+                console.error(`POST FAILED with reason: ${e}`)
             })
     }
     handleExperienceChange(e) {

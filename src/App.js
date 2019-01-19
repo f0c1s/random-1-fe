@@ -13,7 +13,7 @@ export default class App extends Component {
             endpoint: 'http://localhost:54320/skills'
         }
         this.fetchSkills = this.fetchSkills.bind(this)
-        this.onSave = this.onSave.bind(this)
+        this.onUpdate = this.onUpdate.bind(this)
     }
     fetchSkills() {
         this.setState({ fetching: true })
@@ -26,7 +26,7 @@ export default class App extends Component {
             })
             .catch(r => console.error(`FAILED with reason: ${r}`))
     }
-    onSave() {
+    onUpdate() {
         this.fetchSkills()
     }
     componentDidMount() {
@@ -36,8 +36,8 @@ export default class App extends Component {
         return (
             <div className="App">
                 <Header />
-                <ExperienceInput onSave={this.onSave} />
-                <ExperienceDisplay skills={this.state.fetched} />
+                <ExperienceInput onUpdate={this.onUpdate} />
+                <ExperienceDisplay skills={this.state.fetched} onUpdate={this.onUpdate} />
             </div>
         )
     }

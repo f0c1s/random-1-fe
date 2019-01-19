@@ -14,6 +14,7 @@ ol li {
     margin: 1em;
     border: 4px solid #ddd;
     border-radius: 3px;
+    position: relative;
 }
 
 ol li:hover {
@@ -58,6 +59,22 @@ ol li .experience {
         "sidebar experience";
 }
 
+button.onHoverDelete {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-size: 1.2em;
+    border: none;
+    color: grey;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+ol li:hover button.onHoverDelete {
+    display: unset;
+}
+
 @media only screen and (max-width: 800px) {
     section.display {
         margin-top: -1em;
@@ -65,5 +82,12 @@ ol li .experience {
 
     ol li {
         width: calc(100% - 2em);
+    }
+
+    button.onHoverDelete {
+        display: unset;
+        top:50%;
+        transform: translateY(-.8em);
+        background-color: white;
     }
 }
